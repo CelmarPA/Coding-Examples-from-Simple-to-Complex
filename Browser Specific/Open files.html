@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open files</title>
+</head>
+<body>
+    <input type="file" id="d" onchange="a(event)">
+
+    <div id="s">...</div>
+
+    <script>
+        function a(event) {
+            const d = event.target;
+            const f = d.files[0];
+
+            if(f) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const s = e.target.result;
+                    c(s);
+                };
+
+                reader.readAsText(f);
+            }
+        }
+
+        function c(x) {
+            const sd = document.getElementById("s");
+            sd.textContent = x;
+        }
+    </script>
+</body>
+</html>

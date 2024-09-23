@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    <p id="d"></p>
+
+    <script>
+
+        // any object to string
+        let a = ["a", "b", "c"];
+
+        let b = [
+                [0, 1, 0],
+                [1, 1, 1],
+                [0, 1, 0]
+                ];
+
+        let c = { "c1": a, "c2": b, "c3": 42 };
+
+        let obj = { "v1": a, "v2": b, "v3": c };
+
+        // Store data:
+        let txt = JSON.stringify(obj);
+        localStorage.setItem("txtJSON", txt);
+
+        // Retrive data:]
+        txt = localStorage.getItem("txtJSON");
+        obj = JSON.parse(txt);
+
+        let msg = "";
+        msg += "From string: <br>" + txt;
+        msg += "<hr>From object:<br>" + obj.v1;
+        msg += "<br>" + obj.v2[0][1];
+        msg += "<br>" + obj.v3.c2;
+        msg += "<br>" + obj.v3.c2[1][1];
+
+        document.getElementById("d").innerHTML += msg;
+    </script>
+</body>
+</html>

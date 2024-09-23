@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64 encoding and decoding via built-in functions</title>
+</head>
+<body>
+    <script>
+        let ori = "this is a text!";
+
+        // encode a string
+        let enc = btoa(ori);
+
+        // decode the string
+        let dec = atob(enc);
+
+        alert(enc);
+        alert(dec);
+    </script>
+</body>
+</html>
